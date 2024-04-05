@@ -1,0 +1,79 @@
+Imports System
+Imports System.Data
+Imports System.Transactions
+
+Module Module1
+    Class User
+
+        Public name As String
+        Public department As String
+        Public age As Integer
+        Public Sub insert()
+            Console.WriteLine("Enter employee name: ")
+            name = Console.ReadLine()
+            Console.WriteLine("Enter employee department  : ")
+            department = Console.ReadLine()
+            Console.WriteLine("Enter age: ")
+            age = Console.ReadLine()
+        End Sub
+        Public Sub display()
+            Console.WriteLine("Name: {0}", name)
+            Console.WriteLine("Department: {0}", department)
+            Console.WriteLine("Age: {0}", age)
+        End Sub
+        Public Sub update()
+
+        End Sub
+        Public Sub delete()
+
+        End Sub
+    End Class
+
+    Sub Main()
+        Dim i As String
+        Dim j As Integer
+        Dim n As Integer
+        Dim obj(5) As User
+        Console.WriteLine("Enter Number of empolyees you to insert: ")
+        n = Console.ReadLine()
+        Do
+
+            Console.WriteLine("1-Insert Details")
+            Console.WriteLine("2-Display Detailss")
+            Console.WriteLine("3-Update Details")
+            Console.WriteLine("n4-Delete Details")
+            Dim op As Integer
+            Console.WriteLine("Enter your Option: ")
+            op = Console.ReadLine()
+            Select Case op
+                Case 1
+                    For j = 0 To n - 1
+                        obj(j) = New User()
+                        Console.WriteLine("Insert user {0} Details", j + 1)
+                        obj(j).insert()
+                    Next
+                Case 2
+                    For j = 0 To n
+                        obj(j).display()
+                    Next
+                Case 3
+                    Console.WriteLine("Enter which User Do you want to be Update")
+                    j = Console.ReadLine()
+                    obj(j) = New User()
+                    obj(j).update()
+
+                Case 4
+                    Console.WriteLine("Enter which User Do you want to be Delete")
+                    j = Console.ReadLine()
+                    obj(j) = New User()
+                    obj(j).delete()
+
+                Case Else
+                    Console.WriteLine("Invalid Option")
+            End Select
+            Console.WriteLine("do you want continue yes/ no")
+            i = Console.ReadLine()
+        Loop While i = "yes"
+    End Sub
+
+End Module
